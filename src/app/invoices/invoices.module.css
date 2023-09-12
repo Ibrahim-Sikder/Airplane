@@ -1,0 +1,250 @@
+.invoicesWrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #f1f5f9;
+}
+.formControlWrap {
+  width: 100%;
+  background: white;
+  padding: 35px 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom:50px;
+}
+.invoices {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formControl label {
+  display: block;
+}
+.formControl input, .inputField{
+  width: 260px;
+  border: 1px solid #ddd;
+  padding: 0px 5px;
+  border-radius: 20px;
+  height: 45px;
+  font-size: 14px;
+}
+.inputField{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor:pointer;
+}
+.inputField input{
+    width:100%;
+    height: 100%;
+    background: transparent;
+    border:none !important;
+    cursor:pointer;
+}
+.formControl select {
+  width: 455px;
+  border: 1px solid #ddd;
+  height: 45px;
+  border-radius: 20px;
+  padding: 0px 4px;
+  font-size: 14px;
+}
+.uploadIcon {
+  color: #3ce138 !important;
+}
+.selectIcon {
+}
+.imageUpload {
+    width: 143px;
+    border: 1px dashed #ddd;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 10px;
+    margin-left: 45px;
+    cursor: pointer;
+}
+.imageUpload label {
+  font-size: 12px;
+  cursor: pointer;
+}
+.formControl .selectField {
+  width: 200px;
+
+  width: 225px;
+}
+.trip{
+    border: 1px solid #ddd;
+    width: 230px;
+    display: flex;
+    height: 45px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.trip input{
+    height: 100%;
+    background: transparent;
+    border: none;
+    width:100%;
+}
+.trip input:focus{
+    outline: none;
+    border:none;
+}
+.trip input[type='text'], .ProductSelect input{
+    outline:none;
+    border:none;
+}
+
+.searchBar{
+    width: 225px;
+    border: 1px solid #ddd;
+    border-radius: 13px;
+    padding: 15px 10px;
+    position: absolute;
+    z-index: 999;
+    background: white;
+    margin-top: 6px;
+
+}
+.singleSearchBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px 6px;
+    border-radius: 21px;
+}
+.searchBar input{
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+}
+.formControl input[type='text'], .inputField input[type='text']{
+    outline:none;
+    border:none;
+}
+.searchBar small{
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+}
+.searchIcon{
+    font-size: 21px !important;
+}
+.arrow{
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1)!important;
+}
+.arrowKeyDown{
+    transform: rotate(180deg) !important;
+}
+.ProductSelect, .ProductSelect2{
+    width: 130px !important;
+    display: flex;
+    border: 1px solid #ddd;
+    height: 45px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+.ProductSelect input, .ProductSelect2 input{
+    width:100% !important;
+    height:100% !important;
+    border:none !important;
+}
+.ProductSelect2{
+    width: 170px !important;
+
+}
+.description{
+    border: 1px solid #ddd !important;
+    width: 230px;
+    border-radius: 5px;
+    height: 45px;
+}
+.deleteIcon{
+    color:#F36A6A !important;
+}
+.totalField{
+    width: 115px !important;
+    border-radius: 5px !important;
+    margin-right: 5px;
+    border: 1px solid #ddd !important;
+    
+
+}
+.productLabel{
+    width: 451px;
+    display: flex;
+    justify-content: space-between;
+}
+.productLabel label{
+font-size: 12px;
+font-weight: bold;
+}
+.deleteIconWrap{
+    width: 45px;
+    aspect-ratio: 1/1;
+    line-height: 45px;
+    text-align: center;
+    background: #FDE1E1;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+.subTotal{
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+}
+.subTotal strong, .total small{
+    font-size: 12px;
+    display: block;
+}
+.total{
+    display: flex;
+    width: 160px;
+    justify-content: space-between;
+
+}
+.buttonGroupWrap{
+
+    margin: 15px 0px;
+
+}
+.buttonGroupWrap button{
+    background: #3CE138;
+    color: white;
+    margin-right: 12px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0px 16px;
+    font-size: 14px;
+    text-align: center;
+    transition: all cubic-bezier(0.35, 0.32, 0.96, 0.91);
+}
+.buttonGroupWrap button:nth-child(2){
+    background: #fff;
+    color: #3CE138;
+    border:1px solid #ddd;
+}
+.buttonGroupWrap button:nth-child(2):hover{
+    background: #3CE138 ;
+    color: #fff;
+}
+.buttonGroupWrap button:hover{
+    background: #fff;
+    color: #3CE138;
+    border:1px solid #ddd;
+}
+.calendar{
+    position: absolute;
+    top: 73px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+}

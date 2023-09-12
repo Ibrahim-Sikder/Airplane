@@ -1,0 +1,28 @@
+.sideBarWrap{
+    width:300px;
+    background: #3CE138;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.AccordionWrap{
+    background: #3CE138 !important;
+    max-width: 217px;
+    border: 0px !important;
+    border: none !important;
+    box-sizing: none;
+}
+.accordionSummary{
+
+}
+.accordionTypograpy{
+
+}
+.accordionDetails{
+
+}
+.expandIcon{
+    color: #fff !important;
+
+}

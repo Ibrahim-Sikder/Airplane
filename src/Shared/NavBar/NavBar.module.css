@@ -1,0 +1,62 @@
+.navBarWrap{
+    width: 983px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 22px;
+    padding: 0px 20px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-right: 23px;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+.navBar{
+    
+}
+.searchBox{
+    width: 476px;
+    height: 42px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0px 8px;
+
+}
+.searchIcon{
+font-size: 20px;
+}
+.rightSide{
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #3CE138;
+    text-align: center;
+}
+.notification, .message{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #F8BB54;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 7px;
+    line-height: 10px;
+    color: white;
+    right: -1px;
+}
+.message{
+    background: #72ADD7 !important; 
+}
+.notificationWrap{
+    position:relative;
+}

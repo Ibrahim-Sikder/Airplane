@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+    scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+     background-color: #fff; 
+    color: white !important;
+    -webkit-transition: box-shadow 300ms cubic-bezier(0, 0, 0, 0) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0, 0, 0, 0) 0ms;
+     border-radius: 0px; 
+     box-shadow: none; 
+     position: relative; 
+     -webkit-transition: margin 150ms cubic-bezier(0, 0, 0, 0) 0ms; 
+    transition: margin 150ms cubic-bezier(0, 0, 0, 0) 0ms;
+    overflow-anchor: none;
+    border-radius: 0;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root {
+    padding: 0;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+   position: relative;
+}
+.css-yw020d-MuiAccordionSummary-expandIconWrapper.Mui-expanded {
+ 
+    position: relative;
+}
+.rdrMonthAndYearPickers select {
+    cursor: pointer;
+    text-align: center;
+    width: 130px !important;
+    border-radius: 0px !important;
+    border: none !important;
 }
