@@ -121,10 +121,10 @@ const Invoices = () => {
                           <label> Select </label>
                           <select>
                             <option value="Select Client">Select Client</option>
-                            <option value="Select Client">Select Client</option>
-                            <option value="Select Client">Select Client</option>
-                            <option value="Select Client">Select Client</option>
-                            <option value="Select Client">Select Client</option>
+                            <option value="John Doe">John Doe</option>
+                            <option value="James "> James</option>
+                            <option value="Henry">Henry </option>
+                            <option value="Select Client">Jack</option>
                           </select>
                         </div>
                         <div className="ml-5">

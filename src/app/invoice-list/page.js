@@ -1,11 +1,11 @@
-import React from 'react';
-import InvoiceList from '../../components/Invoices/InvoiceList'
+import React from "react";
+import InvoiceList from "../../components/Invoices/InvoiceList";
 const page = () => {
-    return (
-        <div>
-            <InvoiceList/>
-        </div>
-    );
+  return (
+    <div>
+      <InvoiceList />
+    </div>
+  );
 };
 
 export default page;
