@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Dashboard from '../components/Dashboard/DashBoard'
+import Invoices from '../components/Invoices/Invoices'
 export default function Home() {
   return (
     <main>
-      <Dashboard></Dashboard>
+      <Invoices/>
     </main>
   )
 }

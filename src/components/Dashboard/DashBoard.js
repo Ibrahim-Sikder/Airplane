@@ -3,13 +3,14 @@ import SideBar from "../SideBar/SideBar";
 import NavBar from "../../Shared/NavBar/NavBar";
 import dynamic from "next/dynamic";
 const DashBoard = () => {
+
   return (
     <div>
-      <div className="flex justify-between ">
+      <div className="flex justify-center">
         <div>
           <SideBar />
         </div>
-        <div>
+        <div >
           <NavBar />
         </div>
       </div>

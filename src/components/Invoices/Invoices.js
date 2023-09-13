@@ -1,5 +1,6 @@
 "use client";
 
+
 import React, { useState, useRef, useEffect } from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import NavBar from "../../Shared/NavBar/NavBar";
@@ -14,10 +15,10 @@ import {
 } from "@mui/icons-material";
 import { Calendar } from "react-date-range";
 import format from "date-fns/format";
-import { useReactToPrint } from 'react-to-print';
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { ReactToPdf } from 'react-to-pdf';
+import { useReactToPrint } from 'react-to-print';
+import Link from "next/link";
 
 
 const Invoices = () => {
@@ -36,6 +37,10 @@ const Invoices = () => {
   const handleShowProduct = () => {
     setProduct(() => !product);
   };
+
+  // invoice download 
+  
+
 
 // daypicker
 
@@ -84,24 +89,22 @@ const Invoices = () => {
   const handleaddclick = () => {
     setinputList([...inputList,   { ProductType: "", Product: "", Description: "", total: "" }]);
   };
-  // pdf generate 
+
+// print pdf 
   const componentRef = React.useRef();
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
+    documentTitle: 'emp-data',
+    onAfterPrint: ()=> alert('Print success')
   });
-
-  
-
   return (
    
-    <div>
-      
-      <div className={style.invoicesWrap}>
+    <div >
+      <div ref={componentRef} className={style.invoicesWrap}>
         <div className={style.invoicesLeftSide}>
           <SideBar />
-        </div>
-        <div className={style.invoicesRightSide}>
+          <div className={style.invoicesRightSide}>
           <NavBar />
           <div className="mb-8 mt-5">
             <h6 className="text-2xl font-bold">Invoices</h6>
@@ -359,7 +362,10 @@ const Invoices = () => {
                     <div className={style.buttonGroupWrap}>
                       <button>Save</button>
                       <button>Cancel</button>
-                      <button onClick={handlePrint} >Download Invoice </button>
+                      <Link href='/invoice'>  <button>Download Invoice </button></Link>
+                     
+                     
+                    
                     </div>
                     <div>
                       <div className={style.total}>
@@ -377,7 +383,11 @@ const Invoices = () => {
             </div>
           </div>
         </div>
+        </div>
+       
       </div>
+    
+
     </div>
   );
 };
