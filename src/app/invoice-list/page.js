@@ -1,11 +1,24 @@
+"use client"
+
+
 import React from "react";
-import InvoiceList from "../../components/Invoices/InvoiceList";
+import style from "../../components/Dashboard/Dashboard.module.css";
+import DashboardLeft from "@/components/Dashboard/DashboardLeft";
+import InvoiceList from '../../components/Invoices/InvoiceList'
+import dynamic from 'next/dynamic'
 const page = () => {
   return (
-    <div>
-      <InvoiceList />
-    </div>
+    <section>
+      <div className={style.sideBarWrap}>
+        <div className={style.leftSideBar}>
+          <DashboardLeft/>
+        </div>
+        <div className={style.rightSideBar}>
+            <InvoiceList/>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default page;
+export default dynamic(() => Promise.resolve(page), { ssr: false });

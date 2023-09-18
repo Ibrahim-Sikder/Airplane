@@ -1,20 +1,25 @@
+"use client"
+
+
 import React from "react";
-import SideBar from "../SideBar/SideBar";
-import NavBar from "../../Shared/NavBar/NavBar";
-import dynamic from "next/dynamic";
+import style from "./Dashboard.module.css";
+import DashboardLeft from "./DashboardLeft";
+import DashboardRight from "./DashboardRight";
+import dynamic from 'next/dynamic'
 const DashBoard = () => {
   return (
-    <div>
-      <div className="flex justify-center">
-        <div>
-          <SideBar />
+    <section>
+      <div className={style.sideBarWrap}>
+        <div className={style.leftSideBar}>
+          <DashboardLeft/>
         </div>
-        <div>
-          <NavBar />
+        <div className={style.rightSideBar}>
+          <DashboardRight />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
+
 
 export default dynamic(() => Promise.resolve(DashBoard), { ssr: false });

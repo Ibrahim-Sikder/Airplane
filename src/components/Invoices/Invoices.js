@@ -2,9 +2,7 @@
 
 
 import React, { useState, useRef, useEffect } from "react";
-import SideBar from "../../components/SideBar/SideBar";
-import NavBar from "../../Shared/NavBar/NavBar";
-import style from "./invoices.module.css";
+import style from "./Invoices.module.css";
 import dynamic from "next/dynamic";
 import {
   CloudUpload,
@@ -19,12 +17,14 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { useReactToPrint } from 'react-to-print';
 import Link from "next/link";
-
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const Invoices = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showProductType, setShowProductType] = useState(false);
   const [product, setProduct] = useState(false);
+  const { register,reset, formState: { errors }, handleSubmit  } = useForm();
   const [open, setOpen] = useState(false);
   const [calendar, setCalendar] = useState("");
   const refOne = useRef(null);
@@ -98,28 +98,62 @@ const Invoices = () => {
     documentTitle: 'emp-data',
     onAfterPrint: ()=> alert('Print success')
   });
+
+
+  const handleSignUp = data =>{
+    const productData = {
+      trip: data.trip,
+      date: data.date,
+      name: data.name,
+      description: data.description,
+      file: data.file,
+      product: data.productName,
+      productType : data.productType,
+      total: data.total,
+
+    }
+    fetch('http://localhost:5000/products', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(productData)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Product add successfully ! ',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
+
+
+  }
+
+
+
   return (
    
-    <div >
-      <div ref={componentRef} className={style.invoicesWrap}>
-        <div className={style.invoicesLeftSide}>
-          <SideBar />
-          <div className={style.invoicesRightSide}>
-          <NavBar />
-          <div className="mb-8 mt-5">
+    <div>
+            <div className={style.invoicesWrap}>
+            <div className="mb-8 mt-5">
             <h6 className="text-2xl font-bold">Invoices</h6>
             <small>Invoices / New Invoice </small>
           </div>
-          <div>
-            <div className={style.invoicesWrap}>
-              <form className="select">
+              <form onSubmit={handleSubmit(handleSignUp)} className="select">
                 <div className={style.formControlWrap}>
                   <div className={style.invoices}>
                     <div>
                       <div className="flex mb-3">
                         <div className={style.formControl}>
-                          <label> Select </label>
-                          <select>
+                          <label > Select </label>
+                          <select 
+                           {...register("name")}
+                           name='name'>
                             <option value="Select Client">Select Client</option>
                             <option value="John Doe">John Doe</option>
                             <option value="James "> James</option>
@@ -135,9 +169,10 @@ const Invoices = () => {
                              onClick={() => setOpen((open) => !open)}
                             >
                             <input
+                            name='date'
                               value={calendar}
                               readOnly
-                             type='text'
+                              {...register("date", { required: "Date is required" })}
                             />
                             <CalendarMonth className={style.calendarIcon}/>
                             </div>
@@ -161,7 +196,9 @@ const Invoices = () => {
                           onClick={handleShowSearchBar}
                           className={style.trip}
                         >
-                          <input type="text" placeholder="2345" />
+                          <input 
+                           {...register("trip", { required: "Trip is required "})}
+                          name='trip' type="text" placeholder="2345" />
                           <KeyboardArrowDown
                             className={
                               showSearchBar
@@ -194,7 +231,9 @@ const Invoices = () => {
                         <div className="flex items-center">
                           <CloudUpload className={style.uploadIcon} />
                           <div>
-                            <input type="file" id="files" class="hidden" />
+                            <input 
+                             {...register("file")}
+                            name='file' type="file" id="files" className="hidden" />
                             <label for="files">Upload Plane Image </label>
                           </div>
                         </div>
@@ -229,7 +268,11 @@ const Invoices = () => {
                           
                         >
                           <div className={style.ProductSelect}>
-                          <input  type="text" placeholder="Plane" />
+                          <input 
+                          autoComplete="off"
+                            name='productName'
+                            {...register("productName")}
+                          type="text" placeholder="Plane" />
                           <KeyboardArrowDown
                             className={
                               showProductType
@@ -248,6 +291,7 @@ const Invoices = () => {
                             <Search className={style.searchIcon} />
                             <input placeholder="Search" type="text" />
                           </div>
+                        
                           <div>
                             <small>Halicopter</small>
                             <small>Drinks </small>
@@ -268,7 +312,11 @@ const Invoices = () => {
                           
                         >
                           <div className={style.ProductSelect2}>
-                          <input  type="text" placeholder="Falcon8X TBA/LTI" />
+                          <input
+                           autoComplete="off"
+                          name='productType'
+                          {...register("productType")}
+                          type="text" placeholder="Falcon8X TBA/LTI" />
                           <KeyboardArrowDown
                             className={
                               product
@@ -300,6 +348,9 @@ const Invoices = () => {
                         <div className="ml-5">
                           <div className={style.formControl}>
                             <input
+                             autoComplete="off"
+                              {...register("description")}
+                            name='description'
                               type="text"
                               placeholder="Product for Trip t85258"
                               className={style.description}
@@ -313,6 +364,9 @@ const Invoices = () => {
                       <div className="flex justify-center w-full items-center">
                         <div>
                           <input
+                           autoComplete="off"
+                           {...register("total")}
+                          name='total'
                             placeholder="11.500.000"
                             className={style.totalField}
                             type="text"
@@ -360,7 +414,7 @@ const Invoices = () => {
                   </div>
                   <div className="flex w-full justify-between items-center">
                     <div className={style.buttonGroupWrap}>
-                      <button>Save</button>
+                      <button type='submit'>Save</button>
                       <button>Cancel</button>
                       <Link href='/invoice'>  <button>Download Invoice </button></Link>
                      
@@ -382,13 +436,6 @@ const Invoices = () => {
               </form>
             </div>
           </div>
-        </div>
-        </div>
-       
-      </div>
-    
-
-    </div>
   );
 };
 

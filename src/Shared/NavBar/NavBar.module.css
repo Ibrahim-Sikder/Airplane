@@ -1,5 +1,5 @@
 .navBarWrap {
-  width: 1150px;
+  width: 90%;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 22px;
@@ -8,7 +8,6 @@
   height: 70px;
   display: flex;
   align-items: center;
-  margin-right: 23px;
   justify-content: space-between;
   margin-top: 8px;
 }

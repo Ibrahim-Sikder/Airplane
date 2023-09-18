@@ -5,7 +5,6 @@ import React, {useRef } from "react";
 import style from "./invoice.module.css";
 import dynamic from "next/dynamic";
 import { useReactToPrint } from 'react-to-print';
-import InvoicDownloadBtn from '../../Shared/InvoiceDownloadBtn/InvoicDownloadBtn'
 
 const Invoice = () => {
     const componentRef = React.useRef();

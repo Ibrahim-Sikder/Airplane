@@ -1,0 +1,220 @@
+.sideBarWrap {
+    display: flex;
+      justify-content: center;
+  }
+  .sideBarLeft {
+    width: 247px;
+    transition: all 0.5s cubic-bezier(0.15, -0.02, 1, 1.02);
+    z-index:9999999 !important;
+    height:100vh;
+  }
+  .rightSideBarWrap, .rightSideWrap{
+    position: relative;
+    z-index: 99 !important;
+    padding-left: 20px;
+    background: #F1F5F9;
+    height: 100%;
+  }
+  .sidebar {
+    width: 37px;
+    transition: all 0.5s cubic-bezier(0.15, -0.02, 1, 1.02);
+    z-index:999 !important;
+  }
+  
+  .rightSideBar {
+    width: 100%;
+    background-position: center;
+    background:fixed;
+    height:auto;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100vw !important;
+    height:auto;
+    box-sizing: border-box;
+    background-position: center;
+  }
+  .AccordionWrap {
+    background: #3ce138 !important;
+    max-width: 217px;
+    border: 0px !important;
+    border: none !important;
+    box-sizing: none;
+  }
+
+  .leftSideIconWrap {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    margin-left: 20px;
+  }
+  .leftSideIconWrap p {
+    margin-bottom: 15px;
+    color: #fff !important;
+  }
+  .icon {
+    font-size: 22px !important;
+  }
+  .active {
+    background: #3CE138;
+    display: flex;
+    padding-left: 0px;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+    position: fixed;
+    left: -228px;
+    z-index: 999 !important;
+  }
+  .expandIcon,
+.checkIcon {
+  color: #fff !important;
+}
+
+.typograpy {
+  font-size: 13px !important;
+  margin-bottom: 8px !important;
+  cursor: pointer;
+}
+.typograpy div {
+  cursor: pointer;
+}
+  .iconsBarHide {
+    display: none;
+  }
+  
+  .toolTip{
+    background: #3CE138;
+    width: 146px;
+    padding: 7px;
+    left:30px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    top:0px;
+    transition: all .5s cubic-bezier(0.11, -0.04, 0.96, 1.06);
+    font-size: 12px;
+    display: none;
+    z-index: 9999999999 !important;
+    position: absolute;
+  }
+  .mainToolTip{
+    width: 125px !important;
+  
+  }
+ 
+ 
+  .showToolTip{
+    position:relative;
+  }
+  .showToolTip:hover .toolTip{
+  display:block;
+  transition: all .5s cubic-bezier(0.11, -0.04, 0.96, 1.06);
+  z-index: 9999999999 !important;
+
+  }
+  .tabLeft{
+    margin-left: 307px !important;
+  }
+  
+  /* dashboard left side styling  */
+  .dashBoardLeftSide {
+    background: #3CE138;
+    width: 253px;
+    display: flex;
+    padding-left: 10px;
+    left: 0px;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    z-index: 999 !important;
+  }
+  .leftSideWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .bar {
+    background: #3CE138;
+    padding: 0px !important;
+    text-align: left !important;
+    width: 49px;
+    right: -71px;
+    top: 23px;
+    height: 46px;
+    line-height: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -40px;
+    margin-top: 21px;
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    transition: all .5s linear(-0.47 -53.68%, 1 100%);
+  }
+  .bar div{
+    position:relative;
+  
+  }
+  .bar span {
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 3px;
+    display: block;
+    transition: all .5s linear(-0.47 -53.68%, 1 100%);
+  }
+  .bar1{
+    transform: rotate(-45deg);
+      position: absolute;
+      top: -2px;
+      left: -12px;
+      transition: all .5s linear(-0.47 -53.68%, 1 100%);
+  }
+  .bar2{
+    display: none;
+    position: absolute !important;
+    display: none !important;
+    transition: all .5s linear(-0.47 -53.68%, 1 100%);
+  }
+  .bar3{
+    transform: rotate(45deg);
+    position: absolute;
+    top: -2px;
+    right: -18px;
+    transition: all .5s linear(-0.47 -53.68%, 1 100%);
+  }
+ 
+  
+  .profileInfo {
+    text-align: left;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .profileInfo span {
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+  }
+  .profileInfoIcon {
+    color: white;
+  }
+ 
+  .profileInfo li {
+    display: flex;
+    color: white;
+    margin-bottom: 20px;
+    text-align: left !important;
+    margin-left: 0;
+    padding: 0;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .sideBarWrap {
+      display: block;
+    }
+  }

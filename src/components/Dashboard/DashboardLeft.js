@@ -1,10 +1,18 @@
-"use client";
+"use client"
+
+
 
 import React, { useState } from "react";
+import style from "./Dashboard.module.css";
+import Link from "next/link";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Home,
   SettingsPhone,
-  ContactPhone,
   Diversity2,
   Diversity3,
   UploadFile,
@@ -17,45 +25,44 @@ import {
   Settings,
   Loyalty,
 } from "@mui/icons-material";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import style from "./SideBar.module.css";
-import Link from "next/link";
-const SideBar = () => {
+
+const DashboardLeft = () => {
   const [toggleSideBar, setToggleSideBar] = useState(true);
-  const handleToggleSideBar = () => {
-    setToggleSideBar(() => !toggleSideBar);
+  const showSidebar = () => {
+    setToggleSideBar((toggleSideBar) => !toggleSideBar);
   };
 
   return (
-    <div>
+    <aside>
       <div
-        className={
-          toggleSideBar ? `${style.activeSideBar}` : `${style.sideBarLeft}`
-        }
+        className={toggleSideBar ? `${style.sidebar}` : `${style.sideBarLeft}`}
       >
         <div
           className={
-            toggleSideBar
-              ? `${style.sideBarWrap}`
-              : `${style.activeSideBarWrap}`
+            toggleSideBar ? `${style.active}` : `${style.dashBoardLeftSide}`
           }
         >
-          <div className="logo mt-5">
-           <Link href='/'> <h3 className="text-3xl font-bold text-center mb-8">Logo </h3></Link>
+          <div className={style.leftSideWrap}>
             <div>
-              <div className="flex mb-3">
-                <Home className="mr-2 text-white" />
-                <small> Dashboard </small>
-              </div>
-              <div className="flex mb-3">
-                <SettingsPhone className="mr-2 text-white" />
-                <span> Reservations </span>
-              </div>
-              <Accordion className={style.AccordionWrap}>
+               <Link href='/'> <h2 className="text-bold text-3xl text-white">Logo </h2> </Link>
+            </div>
+            
+            <div>
+              <ul className={style.profileInfo}>
+                <li>
+                  <Home/>
+                  <Link href="/b2bsearch/partial">
+                    <span>Dashboard</span>
+                  </Link>
+                </li>
+                <li>
+                  <SettingsPhone className="text-white" />
+                  <Link href="/b2bsearch/returnChange">
+                    <span>Reservation</span>
+                  </Link>
+                </li>
+                <li>
+                <Accordion className={style.AccordionWrap}>
                 <div className={style.accordionDEtailsWrap}>
                   <AccordionSummary
                     className={style.accordionSummary}
@@ -104,16 +111,17 @@ const SideBar = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <div className={style.invoiceType}>
+                </li>
+                <li>
                 <div className="flex my-2">
                   <Description className="mr-2 text-white" />
                   <Link href="/invoice-list">
-                    {" "}
                     <small> Invoices </small>
                   </Link>
                 </div>
-              </div>
-              <Accordion className={style.AccordionWrap}>
+                </li>
+                <li>
+                <Accordion className={style.AccordionWrap}>
                 <div className={style.accordionDEtailsWrap}>
                   <AccordionSummary
                     className={style.accordionSummary}
@@ -123,7 +131,7 @@ const SideBar = () => {
                   >
                     <Typography className={style.accordionTypograpy}>
                       <div className="flex ">
-                        <FlightTakeoff className="mr-2 text-white" />
+                        <FlightTakeoff className=" text-white" />
                         <span> Planes </span>
                       </div>
                     </Typography>
@@ -150,7 +158,9 @@ const SideBar = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className={style.AccordionWrap}>
+                </li>
+                <li>
+                <Accordion className={style.AccordionWrap}>
                 <div className={style.accordionDEtailsWrap}>
                   <AccordionSummary
                     className={style.accordionSummary}
@@ -193,152 +203,128 @@ const SideBar = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <Description className="mr-2 text-white" />
                 <span> Contacts </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <Diversity2 className="mr-2 text-white" />
                 <span> Team </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <Diversity3 className="mr-2 text-white" />
                 <span> Create Members </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <UploadFile className="mr-2 text-white" />
                 <span> Files </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <Comment className="mr-2 text-white" />
                 <span> Messages </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <CalendarMonth className="mr-2 text-white" />
                 <span> Calendar </span>
               </div>
-              <div className="flex mb-3">
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <Settings className="mr-2 text-white" />
                 <span> Setting </span>
               </div>
-              <div className="flex mb-3">
+             
+                </li>
+                <li>
+                <div className="flex mb-3">
                 <LogoutRounded className="mr-2 text-white" />
                 <span> Logout </span>
               </div>
+                </li>
+              </ul>
+            </div>
+           
+          </div>
+          <div className={toggleSideBar ? `${style.leftSideIconWrap}` : `${style.iconsBarHide}`} >
+            <div>
+              <p className={style.showToolTip}><Home className={style.icon} />
+                <Link href=''>
+                  <div className={`${style.toolTip} ${style.mainToolTip}`}>
+                    <span>Dashboard</span>
+                </div> </Link>
+
+              </p>
+
+              <p className={style.showToolTip}><SettingsPhone className={style.icon} />
+                <Link href='/b2bsearch/partial'><div className={style.toolTip}>Reservation</div> </Link>
+              </p>
+
+
+              <p className={style.showToolTip}><Description className={style.icon} />
+                <Link href='/b2bsearch/returnChange'><div className={`${style.toolTip} ${style.toolTip2}`}>Trips </div> </Link>
+              </p>
+
+              <p className={style.showToolTip}><Description className={style.icon} />
+                <Link href='/adb2bsearchmin/transactions'><div className={`${style.toolTip} ${style.toolTip3}`}>Invoices </div> </Link>
+              </p>
+              <p className={style.showToolTip}><FlightTakeoff className={style.icon} />
+                <Link href='/b2bsearch/payment'><div className={`${style.toolTip} ${style.toolTip4}`}>Plane </div> </Link>
+              </p>
+              <p className={style.showToolTip}><Loyalty className={style.icon} />
+                <Link href='/b2bsearch/banklist'><div className={`${style.toolTip} ${style.toolTip5}`}>Aminites</div> </Link>
+              </p>
+              <p className={style.showToolTip}><Description className={style.icon} />
+                <Link href='/b2bsearch/profile'><div className={`${style.toolTip} ${style.toolTip6}`}>Contact </div> </Link>
+              </p>
+              <p className={style.showToolTip}><Diversity2 className={style.icon} />
+                <Link href='/b2bsearch/passenger'><div className={`${style.toolTip} ${style.toolTip7}`}>Team </div> </Link>
+              </p>
+              <p className={style.showToolTip}><Diversity3 className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>Create Members</div> </Link>
+              </p>
+              <p className={style.showToolTip}><UploadFile className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>File</div> </Link>
+              </p>
+              <p className={style.showToolTip}><Comment className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>Message </div> </Link>
+              </p>
+              <p className={style.showToolTip}><CalendarMonth className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>Calendar </div> </Link>
+              </p>
+              <p className={style.showToolTip}><Settings className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>Settings </div> </Link>
+              </p>
+              <p className={style.showToolTip}><LogoutRounded className={style.icon} />
+                <Link href='/b2bsearch/company'><div className={`${style.toolTip} ${style.toolTip8}`}>Logout </div> </Link>
+              </p>
+
             </div>
           </div>
+          {/* tooltip */}
 
-          <div className="flex">
-            <div className={toggleSideBar ? `${style.iconWrap}` : "hidden"}>
-              <div className={style.showToolTip}>
-                <Home className={style.icon} />
-                <div className={style.toolTip}> Dashboard </div>
-              </div>
-              <div className={style.showToolTip}>
-                <SettingsPhone className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip2}`}>
-                  {" "}
-                  Reservation{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Description className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip3}`}>
-                  {" "}
-                  Trips{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Description className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip4}`}>
-                  {" "}
-                  Invoices{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <FlightTakeoff className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip5}`}>
-                  {" "}
-                  Plane{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Loyalty className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip6}`}>
-                  {" "}
-                  Aminites{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Description className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip7}`}>
-                  {" "}
-                  Contact{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Diversity2 className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip8}`}>
-                  {" "}
-                  Team{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Diversity3 className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip9}`}>
-                  {" "}
-                  Create Members{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <UploadFile className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip10}`}>
-                  {" "}
-                  Files{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Comment className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip11}`}>
-                  {" "}
-                  Messages{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <CalendarMonth className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip12}`}>
-                  {" "}
-                  Calendar{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <Settings className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip13}`}>
-                  {" "}
-                  Settings{" "}
-                </div>
-              </div>
-              <div className={style.showToolTip}>
-                <LogoutRounded className={style.icon} />
-                <div className={`${style.toolTip} ${style.toolTip13}`}>
-                  {" "}
-                  Logout{" "}
-                </div>
-              </div>
-            </div>
-            <div onClick={handleToggleSideBar} className={style.bar}>
-              <div>
-                <span className={toggleSideBar ? ` ` : `${style.bar1}`}></span>
-                <span className={toggleSideBar ? ` ` : `${style.bar2}`}></span>
-                <span className={toggleSideBar ? ` ` : `${style.bar3}`}></span>
-              </div>
+          <div onClick={showSidebar} className={style.bar}>
+            <div>
+              <span className={toggleSideBar ? ` ` : `${style.bar1}`}></span>
+              <span className={toggleSideBar ? ` ` : `${style.bar2}`}></span>
+              <span className={toggleSideBar ? ` ` : `${style.bar3}`}></span>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
-export default SideBar;
+export default DashboardLeft;

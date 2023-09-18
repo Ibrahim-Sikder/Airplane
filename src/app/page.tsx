@@ -1,9 +1,10 @@
-import Image from 'next/image'
-import Invoices from '../components/Invoices/Invoices'
+
+import DashBoard from '@/components/Dashboard/DashBoard'
 export default function Home() {
   return (
     <main>
-      <Invoices/>
+      <DashBoard/>
     </main>
   )
 }
+

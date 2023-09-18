@@ -1,13 +1,12 @@
-.invoicesWrap {
-  display: flex;
-  background: #f1f5f9;
+.invoices {
   width: 100%;
+  display: flex;
   justify-content: space-between;
 }
-.invoicesRightSide {
-  padding-left: 125px;
-  width: 100%;
-  overflow: hidden;
+
+.invoicesWrap{
+  width:90%;
+  margin:0 auto;
 }
 .formControlWrap {
   width: 1150px;
@@ -16,11 +15,7 @@
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 50px;
-}
-.invoices {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+  margin: 30px auto;
 }
 
 .formControl label {
@@ -252,8 +247,7 @@
 .invoiceListWrap {
   width: 1150px;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  margin: 10px auto;
 }
 
 .invoiceListTable {
